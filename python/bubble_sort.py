@@ -1,7 +1,18 @@
 sequence = [4, 3, 5, 0, 1]
-swaps = 0
+sequence = [5, 4, 3, 1, 0]
 
-# Your Code Here
+def bubble_sort(arr, swaps = 0):
+    iter_swaps = 0
+    for i in range(1, len(arr)):
+        current, previous = arr[i], arr[i-1]
+        if previous > current:
+            arr[i], arr[i-1] = previous, current
+            iter_swaps += 1
+            swaps += 1
+    if iter_swaps == 0:
+        print(f"Final result: {arr}")
+        print(f"Swaps: {swaps}")
+        return arr, swaps
+    bubble_sort(arr, swaps)
 
-print(f"Final result: {result}")
-print(f"Swaps: {swaps}")
+bubble_sort(sequence)
